@@ -5,7 +5,7 @@ from app import app
 from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['xlsx', 'csv'])
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -31,5 +31,5 @@ def upload_file():
 			flash('File successfully uploaded')
 			return redirect('/')
 		else:
-			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+			flash('Allowed file types are xlsx and csv')
 			return redirect(request.url)
